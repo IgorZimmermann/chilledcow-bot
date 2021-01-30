@@ -8,6 +8,7 @@ require('dotenv').config()
 
 bot.on('ready', () => {
   console.log('Bot is ready...')
+  bot.user.setActivity('ChilledCow 24/7', {type: 'LISTENING'})
 })
 
 bot.on('voiceStateUpdate', async (oldVoice, newVoice) => {
