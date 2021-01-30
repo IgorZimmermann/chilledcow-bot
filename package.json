@@ -1,0 +1,26 @@
+{
+  "name": "chilledcow-bot",
+  "version": "1.0.0",
+  "description": "<p align=\"center\">   <img src=\"https://raw.githubusercontent.com/IgorZimmermann/chilledcow-bot/master/logo.jpg\"> </p>",
+  "main": "main.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "discord.js": "^12.5.1",
+    "node-opus": "^0.3.3",
+    "ytdl-core-discord": "^1.2.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IgorZimmermann/chilledcow-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IgorZimmermann/chilledcow-bot/issues"
+  },
+  "homepage": "https://github.com/IgorZimmermann/chilledcow-bot#readme"
+}
