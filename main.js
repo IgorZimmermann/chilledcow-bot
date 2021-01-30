@@ -1,11 +1,19 @@
 const discord = require('discord.js')
 const bot = new discord.Client()
 
+const ytdl = require('ytdl-core')
+
 const config = require('./config/config.json')
 const secrets = require('./config/secrets.json')
 
 bot.on('ready', () => {
   console.log('Bot is ready...')
+})
+
+bot.on('voiceStateUpdate', async (oldVoice, newVoice) => {
+  if (newVoice.channel && newVoice.client.user.id === bot.user.id) {
+    newVoice.connection.play(await ytdl(config.stream, {type: 'opus'}))
+  }
 })
 
 bot.on('message', message => {
