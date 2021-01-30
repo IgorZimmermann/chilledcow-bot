@@ -4,7 +4,7 @@ const bot = new discord.Client()
 const ytdl = require('ytdl-core')
 
 const config = require('./config/config.json')
-const secrets = require('./config/secrets.json')
+require('dotenv').config()
 
 bot.on('ready', () => {
   console.log('Bot is ready...')
@@ -36,4 +36,4 @@ bot.on('message', message => {
 	}
 })
 
-bot.login(secrets.token)
+bot.login(process.env.TOKEN)
