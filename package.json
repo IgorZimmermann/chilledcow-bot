@@ -1,7 +1,7 @@
 {
   "name": "chilledcow-bot",
   "version": "1.0.0",
-  "description": "<p align=\"center\">   <img src=\"https://raw.githubusercontent.com/IgorZimmermann/chilledcow-bot/master/logo.jpg\"> </p>",
+  "description": "The bot that brings the infamous ChilledCow 24/7 livestream to your Discord server.",
   "main": "main.js",
   "dependencies": {
     "dotenv": "^8.2.0",
@@ -11,7 +11,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node main.js"
+    "start": "node main.js",
+    "test": "nodemon main.js"
   },
   "repository": {
     "type": "git",
