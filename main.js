@@ -1,6 +1,7 @@
 const discord = require('discord.js')
 const bot = new discord.Client()
 
+const fs = require('fs')
 const ytdl = require('ytdl-core')
 
 const config = require('./config/config.json')
@@ -45,7 +46,6 @@ bot.on('message', message => {
 			bot.commands.get(cmd.slice(bot.prefix.length)) ||
 			bot.commands.get(bot.aliases.get(cmd.slice(bot.prefix.length)))
 		if (cmdfile) {
-			remote.emit('bot-command', cmdfile)
 			cmdfile.run(bot, message, args)
 		} else {
 			message.channel.send(
