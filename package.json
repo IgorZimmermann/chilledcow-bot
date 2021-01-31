@@ -4,8 +4,9 @@
   "description": "The bot that brings the infamous ChilledCow 24/7 livestream to your Discord server.",
   "main": "main.js",
   "dependencies": {
-    "dotenv": "^8.2.0",
+    "axios": "^0.21.1",
     "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
     "node-opus": "^0.3.3",
     "ytdl-core-discord": "^1.2.5"
   },
