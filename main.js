@@ -36,7 +36,7 @@ bot.on('message', message => {
   if (message.author.bot) return
 	if (message.channel.type === 'dm') return
 
-	bot.prefix = config.prefix
+	bot.prefix = process.env.PREFIX || config.prefix
 	let msgArray = message.content.split(' ')
 	let cmd = msgArray[0]
 	let args = msgArray.splice(1)
