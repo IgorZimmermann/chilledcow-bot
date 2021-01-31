@@ -10,6 +10,7 @@ module.exports.run = async (bot, message, args) => {
     .setAuthor(bot.user.username)
     .setColor(colors.green)
     .setTitle('Joined Channel')
+    .setThumbnail('https://raw.githubusercontent.com/IgorZimmermann/chilledcow-bot/master/logo.jpg')
     .addField('Channel', voiceChannel.name);
   message.channel.send(joinEmbed)
 }
