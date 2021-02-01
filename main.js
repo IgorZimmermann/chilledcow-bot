@@ -27,7 +27,7 @@ bot.on('ready', () => {
 })
 
 bot.on('voiceStateUpdate', async (oldVoice, newVoice) => {
-  if (newVoice.channel && newVoice.client.user.id === bot.user.id) {
+  if (newVoice.connection) {
     newVoice.connection.play(await ytdl(config.stream, {type: 'opus'}))
   }
 })
