@@ -23,9 +23,9 @@ fs.readdir('./commands/', (err, files) => {
 
 bot.on('ready', () => {
   console.log('Bot is ready...')
-  bot.user.setActivity(`lo-fi in ${bot.guilds.size}`, {type: 'STREAMING'})
+  bot.user.setActivity(`lo-fi in ${bot.guilds.cache.size} servers`, {type: 'PLAYING'})
   setInterval(() => {
-   bot.user.setActivity(`lo-fi in ${bot.guilds.size}`, {type: 'STREAMING'})   
+   bot.user.setActivity(`lo-fi in ${bot.guilds.cache.size} servers`, {type: 'PLAYING'})   
   }, 100000)
 })
 
