@@ -23,7 +23,10 @@ fs.readdir('./commands/', (err, files) => {
 
 bot.on('ready', () => {
   console.log('Bot is ready...')
-  bot.user.setActivity('ChilledCow 24/7', {type: 'LISTENING'})
+  bot.user.setActivity(`lo-fi in ${bot.guilds.size}`, {type: 'STREAMING'})
+  setInterval(() => {
+   bot.user.setActivity(`lo-fi in ${bot.guilds.size}`, {type: 'STREAMING'})   
+  }, 100000)
 })
 
 bot.on('voiceStateUpdate', async (oldVoice, newVoice) => {
