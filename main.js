@@ -10,6 +10,9 @@ require('dotenv').config()
 bot.commands = new discord.Collection()
 bot.aliases = new discord.Collection()
 
+const broadcast = bot.voice.createBroadcast()
+const dispatcher = broadcast.play(ytdl(config.stream, {type: 'opus'}))
+
 fs.readdir('./commands/', (err, files) => {
 	let jsfiles = files.filter((f) => f.split('.').pop() === 'js')
 	jsfiles.forEach((f, i) => {
@@ -31,7 +34,8 @@ bot.on('ready', () => {
 
 bot.on('voiceStateUpdate', async (oldVoice, newVoice) => {
   if (newVoice.connection) {
-    newVoice.connection.play(await ytdl(config.stream, {type: 'opus'}))
+    newVoice.connection.play(broadcast)
+		console.log(`new connection: ${newVoice.channel.name} in ${newVoice.guild.name}`)
   }
 })
 
