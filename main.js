@@ -2,16 +2,12 @@ const discord = require('discord.js')
 const bot = new discord.Client()
 
 const fs = require('fs')
-const ytdl = require('ytdl-core')
 
 const config = require('./config/config.json')
 require('dotenv').config()
 
 bot.commands = new discord.Collection()
 bot.aliases = new discord.Collection()
-
-const broadcast = bot.voice.createBroadcast()
-const dispatcher = broadcast.play(ytdl(config.stream, {type: 'opus'}))
 
 fs.readdir('./commands/', (err, files) => {
 	let jsfiles = files.filter((f) => f.split('.').pop() === 'js')
@@ -30,13 +26,6 @@ bot.on('ready', () => {
   setInterval(() => {
    bot.user.setActivity(`lo-fi in ${bot.guilds.cache.size} servers`, {type: 'PLAYING'})   
   }, 100000)
-})
-
-bot.on('voiceStateUpdate', async (oldVoice, newVoice) => {
-  if (newVoice.connection) {
-    newVoice.connection.play(broadcast)
-		console.log(`new connection: ${newVoice.channel.name} in ${newVoice.guild.name}`)
-  }
 })
 
 bot.on('message', message => {
