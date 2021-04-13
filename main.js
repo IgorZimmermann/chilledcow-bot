@@ -2,6 +2,7 @@ const discord = require('discord.js')
 const bot = new discord.Client()
 
 const fs = require('fs')
+const utils = require('./utils')
 
 const config = require('./config/config.json')
 require('dotenv').config()
@@ -22,6 +23,7 @@ fs.readdir('./commands/', (err, files) => {
 
 bot.on('ready', () => {
   console.log('Bot is ready...')
+	utils.stats(bot)
   bot.user.setActivity(`lo-fi in ${bot.guilds.cache.size} servers`, {type: 'PLAYING'})
   setInterval(() => {
    bot.user.setActivity(`lo-fi in ${bot.guilds.cache.size} servers`, {type: 'PLAYING'})   
@@ -31,6 +33,10 @@ bot.on('ready', () => {
 bot.on('message', message => {
   if (message.author.bot) return
 	if (message.channel.type === 'dm') return
+	if (message.mentions.has(bot.user)) {
+		message.react('🐮')
+		message.reply('MoOoOoOoOoOo')
+	}
 
 	bot.prefix = process.env.PREFIX || config.prefix
 	let msgArray = message.content.split(' ')
