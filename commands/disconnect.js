@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
   if (!voiceChannel) return message.reply('I\'m not in a voice channel')
   if (voiceChannel !== message.member.voice.channel) return message.reply('We\'re not in the same voice channel')
   voiceChannel.leave()
-  message.reply(responses[Math.random() * responses.length])
+  message.reply(responses[Math.floor(Math.random() * responses.length)])
 }
 
 module.exports.help = {
