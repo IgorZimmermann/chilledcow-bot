@@ -1,5 +1,4 @@
 const discord = require('discord.js')
-const axios = require('axios').default
 const ytdl = require('ytdl-core')
 
 const colors = require('../config/colors.json')
@@ -16,7 +15,6 @@ module.exports.run = async (bot, message, args) => {
         .setColor(colors.green)
         .setTitle('Joined Channel')
         .setThumbnail(videoInfo.videoDetails.thumbnails[2].url)
-        .setURL(videoInfo.videoDetails.video_url)
         .addField('Channel', voiceChannel.name)
         .addField('Streaming', videoInfo.videoDetails.title)
         .setFooter('From '+videoInfo.videoDetails.author.name, videoInfo.videoDetails.author.thumbnails[2].url);
